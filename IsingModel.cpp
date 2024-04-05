@@ -5,12 +5,12 @@ IsingModel MetropolisHasting::run(int MCSteps, IsingModel model) {
 
         for (int j = 0; j <model.get_system_size(); j++){
             // claculate the energy
-            model = step(model);
+            step(model);
         }
     }
     return model;
 }
-IsingModel MetropolisHasting::step(IsingModel model) {
+void MetropolisHasting::step(IsingModel &model) {
         double deltaE;
         IsingSpin *testSpin;
 
@@ -22,7 +22,6 @@ IsingModel MetropolisHasting::step(IsingModel model) {
             testSpin->flip();
         }
 
-    return model;
 }
 bool MetropolisHasting::accept(double deltaE) { 
 

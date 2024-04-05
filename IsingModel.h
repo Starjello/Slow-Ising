@@ -59,7 +59,7 @@ protected:
 public:
     MetropolisHasting(double T): _T{T}{ set_seed(1); _distr=std::uniform_real_distribution<>(0,1);}
     IsingModel run (int MCSteps,IsingModel model);
-    IsingModel step (IsingModel model);
+    void step (IsingModel &model);
     void set_T(double T){_T=T;}
     bool accept(double deltaE);
     void set_seed(double seed) {_gen = std::mt19937(seed);}
